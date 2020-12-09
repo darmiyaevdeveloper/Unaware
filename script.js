@@ -29,6 +29,13 @@ const appendLinks = (cats) => {
       anElementThatsAList.innerHTML = splitObject[i];
       anElementThatsAList.setAttribute('onclick', 'redirect(' + '"' + splitObject2[i] + '"' + ')');
       list.appendChild(anElementThatsAList)
+      anElementThatsAList.onmouseover = function () {
+        anElementThatsAList.style.color = 'rgb(156, 156, 250)';
+        anElementThatsAList.style = 'cursor: pointer; color: rgb(156, 156, 250);';
+      }
+      anElementThatsAList.onmouseleave = function () {
+        anElementThatsAList.style.color = 'black';
+      }
     }
     window.loading = false;
   }
@@ -42,15 +49,32 @@ const appendLinks = (cats) => {
       anElementThatsAList.innerHTML = splitObject[i];
       anElementThatsAList.setAttribute('onclick', 'redirect(' + '"' + splitObject2[i] + '"' + ')');
       list.appendChild(anElementThatsAList)
+      anElementThatsAList.onmouseover = function () {
+        anElementThatsAList.style.color = 'rgb(156, 156, 250)';
+        anElementThatsAList.style = 'cursor: pointer; color: rgb(156, 156, 250);';
+      }
+      anElementThatsAList.onmouseleave = function () {
+        anElementThatsAList.style.color = 'black';
+      }
     }
     window.loading = false;
   }
 }
 
+const bugReport = () => {
+  window.location.href = 'https://github.com/darmiyaevdeveloper/Unaware/issues';
+}
+
 for (var i = 0; i < categorieslist.length; i++) {
   const myElement = document.createElement('button');
   myElement.innerHTML = categorieslist[i];
-  myElement.style = 'background-color: #F5F6F7; /* rgba(255, 255, 249, 0.541); original */ border: 1px solid black; border-radius: 2px; width: 15vw; height: 15vh;';
+  myElement.style = 'background-color: #F5F6F7; transition: 0.5s; font-family: \'Montserrat\', sans-serif; border: 1px solid black; border-radius: 2px; width: 15vw; height: 15vh;';
+  myElement.onmouseover = function () {
+    myElement.style = 'background-color: rgb(156, 156, 250); transition: 0.5s; font-family: \'Montserrat\', sans-serif; border: 1px solid black; border-radius: 2px; width: 15vw; height: 15vh;'
+  }
+  myElement.onmouseleave = function () {
+    myElement.style = 'background-color: #F5F6F7; transition: 0.5s; font-family: \'Montserrat\', sans-serif; border: 1px solid black; border-radius: 2px; width: 15vw; height: 15vh;';
+  }
   myElement.setAttribute('onclick', 'appendLinks("' + categorieslist[i] + '")');
   categories.appendChild(myElement);
 }
